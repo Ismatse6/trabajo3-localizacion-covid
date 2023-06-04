@@ -6,10 +6,11 @@ import java.util.LinkedList;
 
 import com.practica.excecption.EmsDuplicateLocationException;
 import com.practica.excecption.EmsLocalizationNotFoundException;
+import com.practica.genericas.Parseo;
 import com.practica.genericas.FechaHora;
 import com.practica.genericas.PosicionPersona;
 
-public class Localizacion {
+public class Localizacion extends Parseo{
 	LinkedList<PosicionPersona> lista;
 
 	public Localizacion() {
@@ -95,31 +96,6 @@ public class Localizacion {
 	    }
 		
 		return cadena;		
-	}
-	
-	@SuppressWarnings("unused")
-	private FechaHora parsearFecha (String fecha) {
-		int dia, mes, anio;
-		String[] valores = fecha.split("\\/");
-		dia = Integer.parseInt(valores[0]);
-		mes = Integer.parseInt(valores[1]);
-		anio = Integer.parseInt(valores[2]);
-		FechaHora fechaHora = new FechaHora(dia, mes, anio, 0, 0);
-		return fechaHora;
-	}
-	
-	private  FechaHora parsearFecha (String fecha, String hora) {
-		int dia, mes, anio;
-		String[] valores = fecha.split("\\/");
-		dia = Integer.parseInt(valores[0]);
-		mes = Integer.parseInt(valores[1]);
-		anio = Integer.parseInt(valores[2]);
-		int minuto, segundo;
-		valores = hora.split("\\:");
-		minuto = Integer.parseInt(valores[0]);
-		segundo = Integer.parseInt(valores[1]);
-		FechaHora fechaHora = new FechaHora(dia, mes, anio, minuto, segundo);
-		return fechaHora;
 	}
 	
 }
